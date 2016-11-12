@@ -12,6 +12,10 @@ public class Joueur implements Comparable<Joueur> {
 		return score;
 	}
 	
+	public int getId(){
+		return id;
+	}
+	
 	public int compareTo(Joueur joueur){
 		if(score > joueur.getScore())
 			return 1;

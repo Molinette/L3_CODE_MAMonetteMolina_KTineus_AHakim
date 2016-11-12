@@ -7,7 +7,11 @@ public class CollectionDe {
 		tableauDe = new De[nbDe];
 	}
 	
-	public Iterator createIterateur(){
+	public DeIterator createIterateur(){
 		return new DeIterator(tableauDe);
+	}
+	
+	public void ajoutDe(De de, int index){
+		tableauDe[index] = de;
 	}
 }

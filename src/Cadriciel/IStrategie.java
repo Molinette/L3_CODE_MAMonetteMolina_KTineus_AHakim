@@ -2,8 +2,8 @@ package Cadriciel;
 
 public interface IStrategie {
 	public void brasserLesDes();
-	public void calculerScoreTour();
+	public boolean calculerScoreTour();
 	public CollectionJoueur determinerLeVainqueur(Jeu jeu);
-	public boolean isTourFini();
-	public boolean isPartieFini();
+	public int getNbTour();
+	public int getNbDe();
 }

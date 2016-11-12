@@ -1,13 +1,9 @@
 package Cadriciel;
 
-public abstract class Fabrique {
-	public De creerDe(int nbFaces){
-		return new De(nbFaces);
-	}
+public interface Fabrique {
+	public De creerDe();
 	
-	public Joueur creerJoueur(int id){
-		return new Joueur(id);
-	}
+	public Joueur creerJoueur(int id);
 	
-	public abstract Jeu creerJeu();
+	public Jeu creerJeu();
 }

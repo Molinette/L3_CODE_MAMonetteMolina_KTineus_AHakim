@@ -7,7 +7,11 @@ public class CollectionJoueur {
 		tableauJoueur = new Joueur[nbJoueur];
 	}
 	
-	public Iterator createIterateur(){
+	public JoueurIterator createIterateur(){
 		return new JoueurIterator(tableauJoueur);
+	}
+	
+	public void ajoutJoueur(Joueur joueur, int index){
+		tableauJoueur[index] = joueur;
 	}
 }

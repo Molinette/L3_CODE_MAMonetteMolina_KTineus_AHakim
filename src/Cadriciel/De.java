@@ -8,14 +8,16 @@ public class De implements Comparable<De>{
 	
 	public De(){
 		this.nbFaces = 6;
+		brasserDe();
 	}
 	
-	public De(int nbFace){
+	public De(int nbFaces){
 		this.nbFaces = nbFaces;
+		brasserDe();
 	}
 	
 	public void brasserDe(){
-		faceAuDessus = new Random().nextInt(6) + 1;
+		faceAuDessus = new Random().nextInt(nbFaces) + 1;
 	}
 	
 	public int getFaceAuDessus(){
