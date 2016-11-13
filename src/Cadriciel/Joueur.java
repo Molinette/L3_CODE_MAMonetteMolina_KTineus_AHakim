@@ -6,6 +6,9 @@ public class Joueur implements Comparable<Joueur> {
 	private int id;
 	private CollectionDe des;
 	
+	/**
+	 * Constructeur
+	 */
 	public Joueur(){
 		nbJoueurs++;
 		this.id = nbJoueurs;
@@ -31,6 +34,9 @@ public class Joueur implements Comparable<Joueur> {
 		return id;
 	}
 	
+	/**
+	 * Brasse tout les dés dans la collection
+	 */
 	public void brasserLesDes(){
 		Cadriciel.Iterator iterateurDes = des.createIterateur();
 		while(iterateurDes.hasNext()){
@@ -39,6 +45,10 @@ public class Joueur implements Comparable<Joueur> {
 		}
 	}
 	
+	/**
+	 * Compare le score du joueur avec celui d'un autre.
+	 * @param joueur L'autre joueur
+	 */
 	public int compareTo(Joueur joueur){
 		if(score > joueur.getScore())
 			return 1;

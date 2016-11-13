@@ -13,6 +13,7 @@ public class JeuBunco extends Jeu{
 		int nbFacesDe = 6;
 		Fabrique fabrique = new Fabrique();
 		
+		//On créer les joueurs et on leur donne une collection de nouveaux dés
 		for(int i = 0; i < joueurs.grandeur() ; i++){
 			joueurs.ajouter(fabrique.creerJoueur());
 			CollectionDe des = new CollectionDe(nbDesParJoueur);
@@ -25,9 +26,12 @@ public class JeuBunco extends Jeu{
 	}
 	protected void jouerUnTour(){
 		Cadriciel.Iterator iterateurJoueurs = joueurs.createIterateur();
+		
+		//On jou un tour pour chaquun des joueur
 		while(iterateurJoueurs.hasNext()){
 			joueurActuel = (Joueur)iterateurJoueurs.next();
 			do{
+				//On brasse les dés et calcule le score du tour
 				joueurActuel.brasserLesDes();
 				strategie.calculerScoreTour(this);
 			}while(isTourFini);
