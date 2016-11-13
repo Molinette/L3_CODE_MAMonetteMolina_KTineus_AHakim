@@ -1,35 +1,37 @@
 package Cadriciel;
 
-public abstract class Jeu implements IStrategie{
-	private int tourActuel;
-	private CollectionJoueur joueurs;
-	private CollectionDe des;
+public abstract class Jeu{
+	protected int nbTour = 1;
+	protected boolean isTourFini = false;
+	protected Joueur joueurActuel;
+	protected int tourActuel = 1;
+	protected CollectionJoueur joueurs;
+	protected IStrategie strategie;
 	
-	public Jeu(){
-
+	public void jouerUnePartie(int nbJoueurs){
+		joueurs = new CollectionJoueur(nbJoueurs);
+		
+		initJeu();
+		for(int i = 0; i < nbTour; i++){
+			jouerUnTour();
+		}
+		terminerJeu();
 	}
-	
-	public int getTourActuel(){
-		return tourActuel;
-	}
-	
-	public void setTourActuel(int tourActuel){
-		this.tourActuel = tourActuel;
+	protected abstract void initJeu();
+	protected abstract void jouerUnTour();
+	protected abstract void terminerJeu();
+	public void setIsTourFini(boolean isTourFini){
+		this.isTourFini = isTourFini;
 	}
 	
 	public CollectionJoueur getJoueurs(){
 		return joueurs;
 	}
-	
-	public void setJoueurs(CollectionJoueur joueurs){
-		this.joueurs = joueurs;
+	public Joueur getJoueurActuel(){
+		return joueurActuel;
 	}
 	
-	public CollectionDe getDes(){
-		return des;
-	}
-	
-	public void setDes(CollectionDe des){
-		this.des = des;
+	public int getTourActuel(){
+		return tourActuel;
 	}
 }

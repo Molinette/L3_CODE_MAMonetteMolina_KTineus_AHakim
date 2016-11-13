@@ -1,6 +1,6 @@
 package Cadriciel;
 
-public class JoueurIterator implements Iterator<Joueur> {
+public class JoueurIterator implements Iterator {
 	private int pos = 0;
 	private Joueur[] collectionJoueur;
 	
@@ -15,7 +15,7 @@ public class JoueurIterator implements Iterator<Joueur> {
 			return true;
 	}
 	
-	public Joueur next(){
+	public Object next(){
 		Joueur joueur = collectionJoueur[pos];
 		pos++;
 		return joueur;

@@ -1,17 +1,23 @@
 package Cadriciel;
 
-public class CollectionDe {
+public class CollectionDe extends Cadriciel.Collection{
 	private De[] tableauDe;
 	
 	public CollectionDe(int nbDe){
-		tableauDe = new De[nbDe];
+		grandeur = nbDe;
+		tableauDe = new De[grandeur];
 	}
 	
 	public DeIterator createIterateur(){
 		return new DeIterator(tableauDe);
 	}
 	
-	public void ajoutDe(De de, int index){
-		tableauDe[index] = de;
+	public void ajouter(De de){
+		tableauDe[nbElements] = de;
+		nbElements++;
+	}
+	
+	public De obtenir(int index){
+		return tableauDe[index];
 	}
 }

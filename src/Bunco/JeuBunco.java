@@ -4,29 +4,37 @@ import Cadriciel.*;
 public class JeuBunco extends Jeu{
 	
 	public JeuBunco(){
-		setDes(new CollectionDe(getNbDe()));
+		nbTour = 6;
 	}
 	
-	public void brasserLesDes(){
-		Iterator<De> iterateur = getDes().createIterateur();
-		while(iterateur.hasNext()){
-			iterateur.next().brasserDe();
+	protected void initJeu(){
+		strategie = new BuncoStrategie();
+		int nbDesParJoueur = 3;
+		int nbFacesDe = 6;
+		Fabrique fabrique = new Fabrique();
+		
+		for(int i = 0; i < joueurs.grandeur() ; i++){
+			joueurs.ajouter(fabrique.creerJoueur());
+			CollectionDe des = new CollectionDe(nbDesParJoueur);
+			for(int j = 0; j < des.grandeur() ; j++){
+				des.ajouter(fabrique.creerDe(nbFacesDe));
+			}
+			joueurs.obtenir(i).setDes(des);
 		}
+		
 	}
-	
-	public boolean calculerScoreTour(){
-		return true;
+	protected void jouerUnTour(){
+		Cadriciel.Iterator iterateurJoueurs = joueurs.createIterateur();
+		while(iterateurJoueurs.hasNext()){
+			joueurActuel = (Joueur)iterateurJoueurs.next();
+			do{
+				joueurActuel.brasserLesDes();
+				strategie.calculerScoreTour(this);
+			}while(isTourFini);
+		}
+		tourActuel++;
 	}
-	
-	public CollectionJoueur determinerLeVainqueur(Jeu jeu){
-		return null;
-	}
-	
-	public int getNbTour(){
-		return 6;
-	}
-	
-	public int getNbDe(){
-		return 3;
+	protected void terminerJeu(){
+		joueurs = strategie.determinerLeVainqueur(this);
 	}
 }

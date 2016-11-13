@@ -1,6 +1,6 @@
 package Cadriciel;
 
-public class DeIterator implements Iterator<De> {
+public class DeIterator implements Iterator {
 	private int pos = 0;
 	private De[] collectionDe;
 	
@@ -15,7 +15,7 @@ public class DeIterator implements Iterator<De> {
 			return true;
 	}
 	
-	public De next(){
+	public Object next(){
 		De de = collectionDe[pos];
 		pos++;
 		return de;

@@ -1,6 +1,6 @@
 package Cadriciel;
 
-public interface Iterator<E> {
+public interface Iterator {
 	public boolean hasNext();
-	public E next();
+	public Object next();
 }

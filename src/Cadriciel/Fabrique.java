@@ -1,9 +1,11 @@
 package Cadriciel;
 
-public interface Fabrique {
-	public De creerDe();
+public class Fabrique {
+	public De creerDe(int nbFaces){
+		return new De(nbFaces);
+	}
 	
-	public Joueur creerJoueur(int id);
-	
-	public Jeu creerJeu();
+	public Joueur creerJoueur(){
+		return new Joueur();
+	}
 }
